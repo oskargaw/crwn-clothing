@@ -33,6 +33,8 @@ class App extends React.Component {
               ...snapShot.data()
             }
           });
+
+          console.log(this.state);
         });
       } else {
         // if user signs out, userAuth will be equal to null, so we set the currentUser also to null
