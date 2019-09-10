@@ -1,0 +1,10 @@
+import { createStore, applyMiddleware } from "redux";
+import logger from "redux-logger";
+
+import rootReducer from "./root-reducer";
+
+const middlewares = [logger];
+
+// "...middlewares" calls every middleware from a middlewares array as a separate argument,
+// it is also possible to call each middleware separately
+export const store = createStore(rootReducer, applyMiddleware(...middlewares));
