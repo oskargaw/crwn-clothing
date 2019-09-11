@@ -19,6 +19,9 @@ const mapDispatchToProps = dispatch => ({
   toggleCartHidden: () => dispatch(toggleCartHidden())
 });
 
+// creating a selector is equal to cutting only the piece from the whole state
+// ex. when we destructured only the couple of things from the whole state
+// we pass here the whole state as an argument as we've made an external selectors to handle that
 const mapStateToProps = state => ({
   itemCount: selectCartItemsCount(state)
 });
