@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import { toggleCartHidden } from "../../redux/cart/cart.actions";
 import { selectCartItemsCount } from "../../redux/cart/cart.selectors";
@@ -19,11 +20,11 @@ const mapDispatchToProps = dispatch => ({
   toggleCartHidden: () => dispatch(toggleCartHidden())
 });
 
-// creating a selector is equal to cutting only the piece from the whole state
-// ex. when we destructured only the couple of things from the whole state
-// we pass here the whole state as an argument as we've made an external selectors to handle that
-const mapStateToProps = state => ({
-  itemCount: selectCartItemsCount(state)
+// creating a selector is equal to cutting only a piece from the whole state
+// ex. when we destructured only a couple of things from the whole state
+// createStructuredSelector passes the whole state to the selectors
+const mapStateToProps = createStructuredSelector({
+  itemCount: selectCartItemsCount
 });
 
 export default connect(
