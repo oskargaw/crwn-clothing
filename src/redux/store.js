@@ -4,7 +4,11 @@ import logger from "redux-logger";
 
 import rootReducer from "./root-reducer";
 
-const middlewares = [logger];
+const middlewares = [];
+
+if (process.env.NODE_ENV === "development") {
+  middlewares.push(logger);
+}
 
 // "...middlewares" calls every middleware from a middlewares array as a separate argument,
 // it is also possible to call each middleware separately
