@@ -19,3 +19,14 @@ export const selectCollection = collectionUrlParam =>
     [selectCollections],
     collections => (collections ? collections[collectionUrlParam] : null)
   );
+
+export const selectIsCollectionFetching = createSelector(
+  [selectShop],
+  shop => shop.isFetching
+);
+
+export const selectIsColletionsLoaded = createSelector(
+  [selectShop],
+  // !! transforms all falsy values: 0, NaN, null, undefined, "" to a boolean, i.e. to false
+  shop => !!shop.collections
+);
