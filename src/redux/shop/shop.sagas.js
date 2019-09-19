@@ -1,4 +1,4 @@
-import { takeEvery, call, put } from "redux-saga/effects";
+import { takeLatest, call, put } from "redux-saga/effects";
 
 import {
   firestore,
@@ -18,11 +18,12 @@ export function* fetchCollectionsAsync() {
   try {
     const collectionRef = firestore.collection("collections");
 
-    // when we "yield" we make sure that it will be a non-blocking code
+    // when we "yield" we make sure that every next code will wait for the previous code to finish
     const snapshot = yield collectionRef.get();
 
     // we could do const collectionsMap = convertSnapshotCollectionsToMap(snapshot) but it can be
-    // a blocking code, when we use "yield", it's non-blocking
+    // a blocking code, when we use "takeEvery", it's non-blocking, because every action is handled
+    // by a separate task
     const collectionsMap = yield call(
       convertSnapshotCollectionsToMap,
       snapshot
@@ -46,7 +47,7 @@ export function* fetchCollectionsAsync() {
 }
 
 export function* fetchCollectionsStart() {
-  yield takeEvery(
+  yield takeLatest(
     ShopActionTypes.FETCH_COLLECTIONS_START,
     fetchCollectionsAsync
   );

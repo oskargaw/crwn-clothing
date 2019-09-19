@@ -1,7 +1,8 @@
-import { UserActionTypes } from "./user.types";
+import UserActionTypes from "./user.types";
 
 const INITIAL_STATE = {
-  currentUser: null
+  currentUser: null,
+  error: null
 };
 
 // state = INITIAL_STATE is a "default parameter" feature
@@ -9,10 +10,19 @@ const INITIAL_STATE = {
 // ""...state" means the state from the moment when the action gets fired
 const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case UserActionTypes.SET_CURRENT_USER:
+    // if the return value is the same in both cases we can write it like that
+    case UserActionTypes.GOOGLE_SIGN_IN_SUCCESS:
+    case UserActionTypes.EMAIL_SIGN_IN_SUCCESS:
       return {
         ...state,
-        currentUser: action.payload
+        currentUser: action.payload,
+        error: null
+      };
+    case UserActionTypes.GOOGLE_SIGN_IN_FAILURE:
+    case UserActionTypes.EMAIL_SIGN_IN_FAILURE:
+      return {
+        ...state,
+        error: action.payload
       };
     default:
       return state;
