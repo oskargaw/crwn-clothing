@@ -23,14 +23,14 @@ const Header = ({ currentUser, hidden, signOutStart }) => (
       <Logo className="logo" />
     </LogoContainer>
     <OptionsContainer>
-      <OptionLink to="/shop">SHOP</OptionLink>
-      <OptionLink to="/shop">CONTACT</OptionLink>
+      <OptionLink to="/shop">SKLEP</OptionLink>
+      <OptionLink to="/shop">KONTAKT</OptionLink>
       {currentUser ? (
         <OptionLink as="div" onClick={signOutStart}>
-          SIGN OUT
+          WYLOGUJ
         </OptionLink>
       ) : (
-        <OptionLink to="/signin">SIGN IN</OptionLink>
+        <OptionLink to="/signin">ZALOGUJ</OptionLink>
       )}
       <CartIcon />
     </OptionsContainer>
@@ -53,7 +53,4 @@ const mapDispatchToProps = dispatch => ({
   signOutStart: () => dispatch(signOutStart())
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

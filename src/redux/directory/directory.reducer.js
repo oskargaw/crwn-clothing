@@ -1,36 +1,39 @@
 const INITIAL_STATE = {
   sections: [
     {
-      title: "hats",
-      imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
+      title: "fantastyka",
+      imageUrl: "https://ecsmedia.pl/c/rytmatysta-w-iext54304271.jpg",
       id: 1,
-      linkUrl: "shop/hats"
+      linkUrl: "shop/fantastyka"
     },
     {
-      title: "jackets",
-      imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
+      title: "biografie",
+      imageUrl:
+        "https://ecsmedia.pl/c/becoming-moja-historia-w-iext54006035.jpg",
       id: 2,
-      linkUrl: "shop/jackets"
+      linkUrl: "shop/biografie"
     },
     {
-      title: "sneakers",
-      imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
+      title: "kryminały",
+      imageUrl:
+        "https://ecsmedia.pl/c/15446880561130188-jpg-gallery.big-iext53765994.jpg",
       id: 3,
-      linkUrl: "shop/sneakers"
+      linkUrl: "shop/kryminały"
     },
     {
-      title: "womens",
-      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
+      title: "komiksy",
+      imageUrl:
+        "https://ecsmedia.pl/c/kajko-i-kokosz-szkola-latania-p-iext35256612.jpg",
       size: "large",
       id: 4,
-      linkUrl: "shop/womens"
+      linkUrl: "shop/komiksy"
     },
     {
-      title: "mens",
-      imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
+      title: "sport",
+      imageUrl: "https://ecsmedia.pl/c/ronaldo-p-iext53911037.jpg",
       size: "large",
       id: 5,
-      linkUrl: "shop/mens"
+      linkUrl: "shop/sport"
     }
   ]
 };
